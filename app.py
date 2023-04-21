@@ -25,6 +25,10 @@ def new_game():
     game_id = str(uuid4())
     game = BoggleGame()
     games[game_id] = game
-    games.board = game.board
+    #access board + verify we have accessed what we need to access
+    board = game.board
+    print(f"{board}")
 
-    return {"gameId": "game_id", "board": "games.board"}
+    new_board = {"gameId": f"{game_id}", "board": f"{board}"}
+
+    return jsonify(new_board)
