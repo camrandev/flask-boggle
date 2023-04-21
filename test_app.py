@@ -40,10 +40,13 @@ class BoggleAppTestCase(TestCase):
             body = resp.get_json()
 
             # test that the game_id is a string
-            self.assertTrue(type(body.get('gameId')) == str )
+            self.assertTrue(type(body.get('gameId')) == str)
+
             # test that the board is a list
+            self.assertTrue(type(body.get('board')) == list)
 
             # test that the game_id is in the dictionary of games (imported from app.py above)
+            self.assertIn(body.get('gameId'), games)
 
     def test_score_word(self):
         """Test if word is valid"""

@@ -29,6 +29,11 @@ def new_game():
     board = game.board
     print(f"{board}")
 
-    new_board = {"gameId": f"{game_id}", "board": f"{board}"}
+    new_board = {"gameId": f"{game_id}", "board": board}
 
     return jsonify(new_board)
+
+@app.post('/api/score-word')
+def score_word():
+    print("request.form =", request.form)
+    return 'hi'
