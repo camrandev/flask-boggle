@@ -35,5 +35,24 @@ def new_game():
 
 @app.post('/api/score-word')
 def score_word():
-    print("request.form =", request.form)
+    global game
+    #extract the JSON from the request.form
+    gameId = request.json['gameId']
+    word = request.json['word']
+
+    # check if word is illegal
+    if not game.is_word_in_word_list(word):
+        response =
+        return jsonify( {"result": "not a word"})
+
+
+
+    # check if word is not on the board
+
+    # if valid, continue
+
+    print("request.form =", gameId)
+
+
+
     return 'hi'
